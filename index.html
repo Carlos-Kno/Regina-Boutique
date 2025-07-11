@@ -23,6 +23,14 @@
                 <input type="text" id="amigo" class="input-name" placeholder="Escribe un nombre">
                 <button class="button-add" onclick="agregarAmigo()">Añadir</button>
             </div>
+            
+            <div class="button-container">
+                <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
+                    <img src="assets/play_circle_outline.png" alt="Ícono para sortear">
+                    Sortear amigo
+                </button>
+            </div>
+            
             <div class="input-wrapper">
                 <input type="file" id="excelInput" accept=".xlsx,.xls" />
                 <label for="excelInput" class="button-add" style="cursor:pointer;">Cargar Excel</label>
@@ -31,12 +39,6 @@
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
             <ul id="resultado" class="result-list" aria-live="polite"></ul>
 
-            <div class="button-container">
-                <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
-                    <img src="assets/play_circle_outline.png" alt="Ícono para sortear">
-                    Sortear amigo
-                </button>
-            </div>
         </section>
     </main>
 
@@ -56,10 +58,3 @@
     </footer>
 </body>
 </html>
-
-<style>
-.modal {
-    z-index: 10000; /* Menor que el canvas de confetti */
-    background: rgba(0,0,0,0.7);
-}
-</style>
