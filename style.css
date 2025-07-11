@@ -36,8 +36,10 @@ body {
 
 /* Background Banner*/
 .header-banner {
-    flex: 60%;
+    flex: 100%;
     display: flex;
+    flex-direction: column;
+    heigth: 300px; /*ajusta la altura según sea necesario */
     justify-content: center;
     align-items: center;
     background-image: url('assets/logo-Regina-boutique.jpg'); /* Reemplaza 'tu-imagen-de-fondo.jpg' con el nombre de tu imagen */
@@ -68,6 +70,9 @@ body {
     font-weight: 900;
     font-style: italic;
     color: var(--color-red);
+    text-align:center;  
+    margin: 0;
+    margin: 20px 0;
 }
 
 .section-title {
@@ -183,10 +188,19 @@ ul {
     background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 9999;
 }
 .modal-content {
-    background: #fff; padding: 2em; border-radius: 10px; text-align: center; font-size: 2em; position: relative;
+    background: rgba(255, 255, 255, 0.733); /* Blanco semitransparente */
+    padding: 2em;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 2em;
+    position: relative;
 }
 .close {
-    position: absolute; top: 10px; right: 20px; font-size: 2em; cursor: pointer;
+    position: absolute; 
+    top: 10px; 
+    right: 20px; 
+    font-size: 2em; 
+    cursor: pointer;
 }
 
 /* Estilos para el input de Excel */
