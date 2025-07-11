@@ -1,5 +1,3 @@
-# Regina-Boutique
-Sorteo de Regina Boutique
 <h1>Sorteo Regina Boutique</h1>
 
 # Sorteo Regina Boutique App
