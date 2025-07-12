@@ -76,23 +76,31 @@ function sortearAmigo() {
     const indiceAleatorio = Math.floor(Math.random() * amigos.length);
     const amigoSorteado = amigos[indiceAleatorio];
 
-    const resultado = document.getElementById('resultado');
     let contador = 5;
-    resultado.innerHTML = `<li>El amigo secreto se revelará en: <strong>${contador}</strong></li>`;
+    // Mostrar el modal y el contador
+    document.getElementById('modalAmigo').style.display = 'flex';
+    document.getElementById('amigoModalTexto').innerHTML = `El amigo secreto se revelará en: <strong>${contador}</strong>`;
+
+// se elimina lo siguinte reemplazado por las 4 lineas de arriba.
+    /*    const resultado = document.getElementById('resultado');
+    let contador = 5;
+    resultado.innerHTML = `<li>El amigo secreto se revelará en: <strong>${contador}</strong></li>`; */
 
     const intervalo = setInterval(() => {
         contador--;
 
         if (contador < 0) {
             clearInterval(intervalo);
-            resultado.innerHTML = `<li>El amigo secreto es: <strong>${amigoSorteado.emoji} ${amigoSorteado.nombre}</strong></li>`;
-            mostrarModalAmigo(amigoSorteado);
-
+//            resultado.innerHTML = `<li>El amigo secreto es: <strong>${amigoSorteado.emoji} ${amigoSorteado.nombre}</strong></li>`;
+            document.getElementById('resultado').innerHTML = `El amigo secreto es: <strong>${amigoSorteado.emoji} ${amigoSorteado.nombre}</strong>`;
+            mostrarModalAmigo(amigoSorteado); // Aquí se muestra el nombre y el confeti
             amigos = amigos.filter((amigo, index) => index !== indiceAleatorio);
             actualizarListaAmigos();
             emojisUsados = [];
         } else {
-            resultado.innerHTML = `<li>El amigo secreto se revelará en: <strong>${contador}</strong></li>`;
+            //resultado.innerHTML = `<li>El amigo secreto se revelará en: <strong>${contador}</strong></li>`;
+            // se sutituye por 
+            document.getElementById('amigoModalTexto').innerHTML = `El Ganador se revelará en: <strong>${contador}</strong>`;
         }
     }, 1000);
 }
@@ -121,8 +129,8 @@ document.getElementById('excelInput').addEventListener('change', function(e) {
 function mostrarModalAmigo(amigo) {
     document.getElementById('amigoModalTexto').innerText = `${amigo.emoji} ${amigo.nombre}`;
     document.getElementById('modalAmigo').style.display = 'flex';
-    // Efecto confeti durante 2 segundos
-    const duration = 2 * 1000;
+    // Efecto confeti durante 4 segundos
+    const duration = 4 * 1000;
     const end = Date.now() + duration;
     (function frame() {
         confetti({
@@ -143,9 +151,39 @@ function mostrarModalAmigo(amigo) {
             requestAnimationFrame(frame);
         }
     })();
+
+    setTimeout(() => {
+        const canvas = document.querySelector('canvas.confetti-canvas');
+        if (canvas) document.body.appendChild(canvas);
+    }, 100);    
 }
 
-document.getElementById('closeModal').onclick = function() {
+// Mostrar el modal de amigos
+function mostrarModalAmigo(amigo) {
+    document.getElementById('amigoModalTexto').innerText = `${amigo.emoji} ${amigo.nombre}`;
+    document.getElementById('modalAmigo').style.display = 'flex';
+}
+
+// Cerrar el modal al hacer clic fuera del contenido
+window.onclick = function(event) {
+    if (event.target === document.getElementById('modalAmigo')) {
+        document.getElementById('modalAmigo').style.display = 'none';
+        document.getElementById('amigoModalTexto').innerText = '';
+        document.getElementById('resultado').innerHTML = '';
+    }
+};
+
+// Cerrar el modal al presionar la tecla Escape
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        document.getElementById('modalAmigo').style.display = 'none';
+        document.getElementById('amigoModalTexto').innerText = '';
+        document.getElementById('resultado').innerHTML = '';
+    }
+});
+
+// Cerrar el modal y limpiar el contenido
+    document.getElementById('closeModal').onclick = function() {
     document.getElementById('modalAmigo').style.display = 'none';
     document.getElementById('amigoModalTexto').innerText = '';
     document.getElementById('resultado').innerHTML = '';
