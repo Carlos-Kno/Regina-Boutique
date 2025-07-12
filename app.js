@@ -158,11 +158,11 @@ function mostrarModalAmigo(amigo) {
     }, 100);    
 }
 
-// Mostrar el modal de amigos
+/* Mostrar el modal de amigos
 function mostrarModalAmigo(amigo) {
     document.getElementById('amigoModalTexto').innerText = `${amigo.emoji} ${amigo.nombre}`;
     document.getElementById('modalAmigo').style.display = 'flex';
-}
+} */
 
 // Cerrar el modal al hacer clic fuera del contenido
 window.onclick = function(event) {
