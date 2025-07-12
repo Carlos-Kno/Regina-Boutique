@@ -130,7 +130,7 @@ function mostrarModalAmigo(amigo) {
     document.getElementById('amigoModalTexto').innerText = `${amigo.emoji} ${amigo.nombre}`;
     document.getElementById('modalAmigo').style.display = 'flex';
     // Efecto confeti durante 4 segundos
-    const duration = 4 * 1000;
+    const duration = 6 * 1000;
     const end = Date.now() + duration;
     (function frame() {
         confetti({
