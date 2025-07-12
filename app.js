@@ -79,7 +79,7 @@ function sortearAmigo() {
     let contador = 5;
     // Mostrar el modal y el contador
     document.getElementById('modalAmigo').style.display = 'flex';
-    document.getElementById('amigoModalTexto').innerHTML = `El amigo secreto se revelará en: <strong>${contador}</strong>`;
+    document.getElementById('amigoModalTexto').innerHTML = `El Ganador se revelará en: <strong>${contador}</strong>`;
 
 // se elimina lo siguinte reemplazado por las 4 lineas de arriba.
     /*    const resultado = document.getElementById('resultado');
@@ -92,7 +92,7 @@ function sortearAmigo() {
         if (contador < 0) {
             clearInterval(intervalo);
 //            resultado.innerHTML = `<li>El amigo secreto es: <strong>${amigoSorteado.emoji} ${amigoSorteado.nombre}</strong></li>`;
-            document.getElementById('resultado').innerHTML = `El amigo secreto es: <strong>${amigoSorteado.emoji} ${amigoSorteado.nombre}</strong>`;
+            document.getElementById('resultado').innerHTML = `El Ganador secreto es: <strong>${amigoSorteado.emoji} ${amigoSorteado.nombre}</strong>`;
             mostrarModalAmigo(amigoSorteado); // Aquí se muestra el nombre y el confeti
             amigos = amigos.filter((amigo, index) => index !== indiceAleatorio);
             actualizarListaAmigos();
